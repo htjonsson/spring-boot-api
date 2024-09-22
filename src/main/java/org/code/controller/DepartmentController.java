@@ -3,10 +3,12 @@ package org.code.controller;
 import org.code.entity.Department;
 import org.code.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class DepartmentController {
     @Autowired private DepartmentService departmentService;
 
