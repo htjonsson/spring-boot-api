@@ -20,8 +20,8 @@ public class DepartmentController {
 
     // Read operation
     @GetMapping("/departments")
-    public List<Department> fetchDepartmentList() {
-        return departmentService.fetchDepartmentList();
+    public ResponseEntity<List<Department>> fetchDepartmentList() {
+        return new ResponseEntity<List<Department>>(departmentService.fetchDepartmentList(), HttpStatus.OK);
     }
 
     // Update operation
@@ -35,6 +35,7 @@ public class DepartmentController {
 
     // Delete operation
     @DeleteMapping("/departments/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public String deleteDepartmentById(
         @PathVariable("id") Long departmentId
     ) {
